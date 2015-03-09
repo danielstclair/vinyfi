@@ -1,0 +1,6 @@
+**/.tmp/**
+**/views/**
+**/assets/**
+**/.sass-cache/**
+**bower.json**
+**/.git/**
