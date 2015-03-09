@@ -39,12 +39,14 @@ User attributes:
   - username  : { type: 'string', unique: true }
   - email     : { type: 'email',  unique: true }
   - passports : { collection: 'Passport', via: 'user' }
+  - albums : {collection: 'Album', via: 'user'}
 
-Collections attributes:
+Album attributes:
   - artist: {type: 'string', required: true, unique: false}
   - album: {type: 'string', required: true, unique: false}
   - releaseDate: {type: 'datetime', required: false, unique: false}
   - albumCover: {type: 'string', required: true, unique: false}
+  - user : { model: 'User", required : true } 
 
 ## APIs, Plugins, Libraries and Frameworks
  - Spotify API
