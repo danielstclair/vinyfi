@@ -1,0 +1,104 @@
+/**
+ * importer.less
+ *
+ * By default, new Sails projects are configured to compile this file
+ * from LESS to CSS.  Unlike CSS files, LESS files are not compiled and
+ * included automatically unless they are imported below.
+ *
+ * The LESS files imported below are compiled and included in the order
+ * they are listed.  Mixins, variables, etc. should be imported first
+ * so that they can be accessed by subsequent LESS stylesheets.
+ *
+ * (Just like the rest of the asset pipeline bundled in Sails, you can
+ * always omit, customize, or replace this behavior with SASS, SCSS,
+ * or any other Grunt tasks you like.)
+ */
+body {
+  margin: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Futura'; }
+
+p, a, input {
+  font-family: 'Avenir Next'; }
+
+.home-view .pics {
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px; }
+  .home-view .pics h1 {
+    text-align: center; }
+  .home-view .pics .description {
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    border-top: 1px solid white;
+    max-width: 740px; }
+    .home-view .pics .description p {
+      padding: 100px 20px; }
+  .home-view .pics .login {
+    text-align: center;
+    padding-top: 20px;
+    z-index: 1000; }
+    .home-view .pics .login .login-options {
+      text-decoration: none;
+      color: #fff; }
+    .home-view .pics .login .login-options:hover {
+      color: #26ED44; }
+    .home-view .pics .login .login-options:nth-of-type(1) {
+      padding-right: 60px; }
+    .home-view .pics .login .login-options:nth-of-type(2) {
+      padding-left: 60px; }
+    .home-view .pics .login input {
+      background-color: transparent;
+      padding: .3em 2em;
+      width: 180px;
+      border: none;
+      border-bottom: 1px solid white;
+      color: white;
+      outline: none;
+      margin: 10px 20px 0;
+      font-size: .9em; }
+    .home-view .pics .login ::-webkit-input-placeholder {
+      /* WebKit browsers */
+      color: #eee;
+      font-size: 1em; }
+    .home-view .pics .login :-moz-placeholder {
+      /* Mozilla Firefox 4 to 18 */
+      color: #eee;
+      opacity: 1;
+      font-size: 1em; }
+    .home-view .pics .login ::-moz-placeholder {
+      /* Mozilla Firefox 19+ */
+      color: #eee;
+      opacity: 1;
+      font-size: 1em; }
+    .home-view .pics .login :-ms-input-placeholder {
+      /* Internet Explorer 10+ */
+      color: #eee;
+      font-size: 1em; }
+    .home-view .pics .login button {
+      margin-top: 20px;
+      border: none;
+      font-size: .8em;
+      padding: .3em .7em;
+      color: white;
+      text-decoration: none; }
+    .home-view .pics .login button:hover {
+      outline: rgba(255, 255, 255, 0.4) solid thin; }
+    .home-view .pics .login button:nth-of-type(1) {
+      margin-right: 60px; }
+    .home-view .pics .login button:nth-of-type(2) {
+      margin-left: 60px; }
+    .home-view .pics .login .submit {
+      background-color: rgba(38, 237, 68, 0.4); }
+    .home-view .pics .login .cancel {
+      background-color: rgba(228, 77, 77, 0.4); }
+.home-view #pic1 {
+  background-image: url("/images/vinyl9.gif"); }
+
+/*# sourceMappingURL=importer.css.map */
