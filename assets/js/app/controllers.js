@@ -1,4 +1,4 @@
-angular.module('app.controllers', ['app.services'])
+angular.module('app.controllers', ['app.services', 'spotify'])
 .controller('homeCTRL', function($scope, $http, $state, Validate){
 	var quotes = [
 		'keep track of your records anywhere.',
@@ -77,7 +77,7 @@ angular.module('app.controllers', ['app.services'])
 			};
 			console.log(object);
 
-			$http.post('auth/register', object)
+			$http.post('auth/local/register', object)
 			.success(function(res) {
 				console.log('success!');
 				// console.log(res);
@@ -88,11 +88,28 @@ angular.module('app.controllers', ['app.services'])
 				console.log(err)
 			})
 		}
+		else {
+			console.log($scope.error);
+			}
 	}
 })
 
-.controller('collectionCTRL', function($scope){
+.controller('collectionCTRL', function($scope, $state, $http, Spotify){
 	console.log('test');
+	$scope.logout = function(){
+		$http.get('/logout');
+		$state.go('home');
+	}
+
+	$scope.search = function(){
+		Spotify.search($scope.artistSearch, 'artist').then(function (data) {
+			console.log(data);
+			Spotify.getArtistAlbums(data.artists.items[0].id).then(function(albums){
+				console.log(albums);
+			});
+		});
+		$scope.artistSearch = '';
+	}
 })
 
 

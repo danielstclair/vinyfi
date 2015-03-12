@@ -1,1 +1,4 @@
 <h1>test</h1>
+<a href="#" ng-click="logout()">logout</a>
+<input type="text" placeholder="search by artist" id="artistSearch" ng-model="artistSearch" ng-keyup="$event.keyCode == 13 && search()">
+<button ng-click="search()">Search</button>

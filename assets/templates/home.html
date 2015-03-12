@@ -1,11 +1,12 @@
 <section class="home-view">
 	<div class="pics" id="pic1">
+		<header>
 		<section class="login">
 			<a class="login-options" href="#" ng-click="loginStart()">log in</a>
 			<a class="login-options" href="#" ng-click="registerStart()">register</a>
 			<form ng-show="loginInput" ng-submit="login(htmlCredentials)">
 				<input type="text" placeholder="email" ng-model="htmlCredentials.identifier"><br>
-				<input type="password" placeholder="password" ng-model="htmlCredentials.password"><br>
+				<input type="password" placeholder="password" ng-model="htmlCredentials.password" ng-keyup="$event.keyCode == 13 && login(htmlCredentials)"><br>
 				<button type="submit" class="submit">submit</button>
 				<button class="cancel" ng-click="loginStart()">cancel</button>
 				<p class="errors" ng-bind="error.identifier"></p>
@@ -13,7 +14,7 @@
 			</form>
 			<form ng-show="registerInput" ng-submit="register(htmlCredentials)">
 				<input type="text" placeholder="email" ng-model="htmlCredentials.identifier"><br>
-				<input type="password" placeholder="password" ng-model="htmlCredentials.password"><br>
+				<input type="password" placeholder="password" ng-model="htmlCredentials.password" ng-keyup="$event.keyCode == 13 && register(htmlCredentials)"><br>
 				<button type="submit" class="submit">let's go!</button>
 				<button class="cancel" ng-click="registerStart()">cancel</button>
 				<p class="errors" ng-bind="error.identifier"></p>
@@ -23,6 +24,7 @@
 		<div class="img-box">
 			<img src="/images/Vinyfi-lightgreen.png">
 		</div>
+		</header>
 		<div class="description">
 			<p id="description"></p>
 		</div>

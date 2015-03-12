@@ -22,6 +22,10 @@ h1, h2, h3, h4, h5, h6 {
 p, a, input {
   font-family: 'Avenir Next'; }
 
+.home-view header {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  padding-bottom: .9em; }
 .home-view .pics {
   background-size: cover;
   background-repeat: no-repeat;
@@ -30,6 +34,8 @@ p, a, input {
   left: 0px;
   right: 0px;
   bottom: 0px; }
+  .home-view .pics .img-box {
+    margin: 0 auto; }
   .home-view .pics img {
     display: block;
     margin: 10px auto;
@@ -40,13 +46,13 @@ p, a, input {
     margin: 0 auto;
     text-align: center;
     color: white;
-    border-top: 1px solid white;
     max-width: 740px; }
     .home-view .pics .description p {
       padding: 150px 20px; }
   .home-view .pics .login {
+    margin: 0 auto;
     text-align: center;
-    padding-top: 20px;
+    padding: 20px 0 10px;
     z-index: 1000; }
     .home-view .pics .login .login-options {
       text-decoration: none;
@@ -58,7 +64,7 @@ p, a, input {
     .home-view .pics .login .login-options:nth-of-type(2) {
       padding-left: 60px; }
     .home-view .pics .login input {
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.6);
       padding: .3em 2em;
       width: 180px;
       border: none;
@@ -99,9 +105,11 @@ p, a, input {
     .home-view .pics .login button:nth-of-type(2) {
       margin-left: 60px; }
     .home-view .pics .login .submit {
-      background-color: rgba(44, 182, 115, 0.4); }
+      background-color: rgba(44, 182, 115, 0.6); }
     .home-view .pics .login .cancel {
-      background-color: rgba(228, 77, 77, 0.4); }
+      background-color: rgba(228, 77, 77, 0.6); }
+    .home-view .pics .login .errors {
+      color: rgba(228, 77, 77, 0.9); }
 .home-view #pic1 {
   background-image: url("/images/vinyl9.gif"); }
 
