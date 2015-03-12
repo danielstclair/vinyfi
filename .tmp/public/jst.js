@@ -1,10 +1,20 @@
 this["JST"] = this["JST"] || {};
 
+this["JST"]["assets/templates/collection.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<h1>test</h1>';
+
+}
+return __p
+};
+
 this["JST"]["assets/templates/home.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<section class="home-view">\n\t<div class="pics" id="pic1">\n\t\t<section class="login">\n\t\t\t<a class="login-options" href="#" ng-click="login()">log in</a>\n\t\t\t<a class="login-options" href="#">register</a>\n\t\t\t<div ng-show="loginInput">\n\t\t\t\t<input type="text" placeholder="email" ng-model="email"><br>\n\t\t\t\t<input type="password" placeholder="password" ng-model="password"><br>\n\t\t\t\t<button class="submit">submit</button>\n\t\t\t\t<button class="cancel" ng-click="login()">cancel</button>\n\t\t\t</div>\n\t\t</section>\n\t\t<h1>Vinyfi</h1>\n\t\t<div class="description">\n\t\t\t<p id="description"></p>\n\t\t</div>\n\t</div>\n</section>';
+__p += '<section class="home-view">\n\t<div class="pics" id="pic1">\n\t\t<section class="login">\n\t\t\t<a class="login-options" href="#" ng-click="loginStart()">log in</a>\n\t\t\t<a class="login-options" href="#" ng-click="registerStart()">register</a>\n\t\t\t<form ng-show="loginInput" ng-submit="login(htmlCredentials)">\n\t\t\t\t<input type="text" placeholder="email" ng-model="htmlCredentials.identifier"><br>\n\t\t\t\t<input type="password" placeholder="password" ng-model="htmlCredentials.password"><br>\n\t\t\t\t<button type="submit" class="submit">submit</button>\n\t\t\t\t<button class="cancel" ng-click="loginStart()">cancel</button>\n\t\t\t\t<p class="errors" ng-bind="error.identifier"></p>\n\t\t\t\t<p class="errors" ng-bind="error.password"></p>\n\t\t\t</form>\n\t\t\t<form ng-show="registerInput" ng-submit="register(htmlCredentials)">\n\t\t\t\t<input type="text" placeholder="email" ng-model="htmlCredentials.identifier"><br>\n\t\t\t\t<input type="password" placeholder="password" ng-model="htmlCredentials.password"><br>\n\t\t\t\t<button type="submit" class="submit">let\'s go!</button>\n\t\t\t\t<button class="cancel" ng-click="registerStart()">cancel</button>\n\t\t\t\t<p class="errors" ng-bind="error.identifier"></p>\n\t\t\t\t<p class="errors" ng-bind="error.password"></p>\n\t\t\t</form>\n\t\t</section>\n\t\t<div class="img-box">\n\t\t\t<img src="/images/Vinyfi-lightgreen.png">\n\t\t</div>\n\t\t<div class="description">\n\t\t\t<p id="description"></p>\n\t\t</div>\n\t</div>\n</section>';
 
 }
 return __p

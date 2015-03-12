@@ -30,8 +30,12 @@ p, a, input {
   left: 0px;
   right: 0px;
   bottom: 0px; }
-  .home-view .pics h1 {
-    text-align: center; }
+  .home-view .pics img {
+    display: block;
+    margin: 10px auto;
+    width: 162.36px;
+    height: 120px;
+    -webkit-filter: drop-shadow(12px 12px 25px rgba(0, 0, 0, 0.5)); }
   .home-view .pics .description {
     margin: 0 auto;
     text-align: center;
@@ -39,7 +43,7 @@ p, a, input {
     border-top: 1px solid white;
     max-width: 740px; }
     .home-view .pics .description p {
-      padding: 100px 20px; }
+      padding: 150px 20px; }
   .home-view .pics .login {
     text-align: center;
     padding-top: 20px;
@@ -48,17 +52,17 @@ p, a, input {
       text-decoration: none;
       color: #fff; }
     .home-view .pics .login .login-options:hover {
-      color: #26ED44; }
+      color: #2cb673; }
     .home-view .pics .login .login-options:nth-of-type(1) {
       padding-right: 60px; }
     .home-view .pics .login .login-options:nth-of-type(2) {
       padding-left: 60px; }
     .home-view .pics .login input {
-      background-color: transparent;
+      background-color: rgba(0, 0, 0, 0.3);
       padding: .3em 2em;
       width: 180px;
       border: none;
-      border-bottom: 1px solid white;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.4);
       color: white;
       outline: none;
       margin: 10px 20px 0;
@@ -95,7 +99,7 @@ p, a, input {
     .home-view .pics .login button:nth-of-type(2) {
       margin-left: 60px; }
     .home-view .pics .login .submit {
-      background-color: rgba(38, 237, 68, 0.4); }
+      background-color: rgba(44, 182, 115, 0.4); }
     .home-view .pics .login .cancel {
       background-color: rgba(228, 77, 77, 0.4); }
 .home-view #pic1 {

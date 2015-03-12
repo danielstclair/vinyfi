@@ -19,8 +19,15 @@
 		left: 0px; 
 		right: 0px; 
 		bottom: 0px;
-		h1{
-			text-align: center;}
+		img{
+			// text-align: center;
+			// margin: 0 auto;
+			// vertical-align: center;
+			display: block;
+			margin: 10px auto;
+			width: 162.36px;
+			height: 120px;
+			-webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));}
 		.description{
 			margin: 0 auto;
 			text-align: center;
@@ -28,7 +35,7 @@
 			border-top: 1px solid white;
 			max-width: 740px;
 			p{
-				padding: 100px 20px;}
+				padding: 150px 20px;}
 		}
 		.login{
 			text-align: center;
@@ -38,17 +45,17 @@
 				text-decoration: none;
 				color: #fff;}
 			.login-options:hover{
-				color: #26ED44;}
+				color: #2cb673;}
 			.login-options:nth-of-type(1){
 				padding-right: 60px;}
 			.login-options:nth-of-type(2){
 				padding-left: 60px;}
 			input{
-				background-color:rgba(0, 0, 0, 0);	
+				background-color:rgba(0, 0, 0, .3);	
 				padding: .3em 2em;
 				width: 180px;
 				border: none;
-				border-bottom: 1px solid white;
+				border-bottom: 1px solid rgba(0, 0, 0, .4);
 				color: white;
 				outline: none;
 				margin: 10px 20px 0;
@@ -82,7 +89,7 @@
 			button:nth-of-type(2){
 				margin-left: 60px;}
 			.submit{
-				background-color:rgba(38, 237, 68, .4);}
+				background-color:rgba(44, 182, 115, .4);}
 			.cancel{
 				background-color: rgba(228, 77, 77, .4);}
 		}

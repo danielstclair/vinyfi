@@ -6,6 +6,11 @@ angular.module('app', ['app.controllers', 'ui.router'])
 		templateUrl: 'templates/home.html',
 		controller: 'homeCTRL'
 	})
+	.state('collection', {
+		url: '/collection',
+		templateUrl: 'templates/collection.html',
+		controller: 'collectionCTRL'
+	})
 
 	$urlRouterProvider.otherwise('/');
 })

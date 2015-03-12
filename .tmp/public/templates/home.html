@@ -1,16 +1,28 @@
 <section class="home-view">
 	<div class="pics" id="pic1">
 		<section class="login">
-			<a class="login-options" href="#" ng-click="login()">log in</a>
-			<a class="login-options" href="#">register</a>
-			<div ng-show="loginInput">
-				<input type="text" placeholder="email" ng-model="email"><br>
-				<input type="password" placeholder="password" ng-model="password"><br>
-				<button class="submit">submit</button>
-				<button class="cancel" ng-click="login()">cancel</button>
-			</div>
+			<a class="login-options" href="#" ng-click="loginStart()">log in</a>
+			<a class="login-options" href="#" ng-click="registerStart()">register</a>
+			<form ng-show="loginInput" ng-submit="login(htmlCredentials)">
+				<input type="text" placeholder="email" ng-model="htmlCredentials.identifier"><br>
+				<input type="password" placeholder="password" ng-model="htmlCredentials.password"><br>
+				<button type="submit" class="submit">submit</button>
+				<button class="cancel" ng-click="loginStart()">cancel</button>
+				<p class="errors" ng-bind="error.identifier"></p>
+				<p class="errors" ng-bind="error.password"></p>
+			</form>
+			<form ng-show="registerInput" ng-submit="register(htmlCredentials)">
+				<input type="text" placeholder="email" ng-model="htmlCredentials.identifier"><br>
+				<input type="password" placeholder="password" ng-model="htmlCredentials.password"><br>
+				<button type="submit" class="submit">let's go!</button>
+				<button class="cancel" ng-click="registerStart()">cancel</button>
+				<p class="errors" ng-bind="error.identifier"></p>
+				<p class="errors" ng-bind="error.password"></p>
+			</form>
 		</section>
-		<h1>Vinyfi</h1>
+		<div class="img-box">
+			<img src="/images/Vinyfi-lightgreen.png">
+		</div>
 		<div class="description">
 			<p id="description"></p>
 		</div>
