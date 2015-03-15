@@ -101,7 +101,7 @@ angular.module('app.controllers', ['app.services', 'spotify'])
 		$state.go('home');
 	}
 
-	$http.get('http://tiny-pizza-server.herokuapp.com/collections/vinyfi?sort=artist ASC')
+	$http.get('https://tiny-pizza-server.herokuapp.com/collections/vinyfi?sort=artist ASC')
 	.success(function(collection){
 		$scope.collection = collection;
 		console.log($scope.collection);
@@ -157,7 +157,7 @@ angular.module('app.controllers', ['app.services', 'spotify'])
 		}
 		console.log(newAlbum);
 
-		$http.post('http://tiny-pizza-server.herokuapp.com/collections/vinyfi', newAlbum)
+		$http.post('https://tiny-pizza-server.herokuapp.com/collections/vinyfi', newAlbum)
 		.success(function(addedAlbum){
 			console.log(addedAlbum);
 		})
