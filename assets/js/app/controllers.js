@@ -101,20 +101,34 @@ angular.module('app.controllers', ['app.services', 'spotify'])
 		$state.go('home');
 	}
 
-	$http.get('https://tiny-pizza-server.herokuapp.com/collections/vinyfi?sort=artist ASC')
+	$http.get('/album')
 	.success(function(collection){
 		$scope.collection = collection;
 		console.log($scope.collection);
+	})
+
+	$http.get('/auth/user')
+	.success(function(response){
+		// $scope.collection = collection;
+		console.log(response);
 	})
 })
 
 .controller('addNewCTRL', function($scope, $state, $http, Spotify){
 	$scope.artists = {};
+	$scope.user = {};
 	console.log('test');
 	$scope.logout = function(){
 		$http.get('/logout');
 		$state.go('home');
 	}
+
+	$http.get('/auth/user')
+	.success(function(response){
+		// $scope.collection = collection;
+		console.log(response);
+		$scope.user = response;
+	})
 
 	$scope.search = function(){
 		Spotify.search($scope.artistSearch, 'artist').then(function (data) {
@@ -152,15 +166,20 @@ angular.module('app.controllers', ['app.services', 'spotify'])
 		// console.log(albumId);
 		var newAlbum = {
 			artist: $scope.artists[artistId].name,
-			album: albumId,
-			albumCover: albumCover
+			album: albumId.toString(),
+			albumCover: albumCover.toString(),
+			user: $scope.user
 		}
 		console.log(newAlbum);
 
-		$http.post('https://tiny-pizza-server.herokuapp.com/collections/vinyfi', newAlbum)
+		$http.post('/album', newAlbum)
 		.success(function(addedAlbum){
 			console.log(addedAlbum);
 		})
+		.error(function(err){
+			console.log('err');
+			console.log(err);
+		});
 
 	}
 

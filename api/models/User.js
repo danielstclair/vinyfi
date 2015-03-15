@@ -6,7 +6,7 @@ var User = {
     username  : { type: 'string', unique: true },
     email     : { type: 'email',  unique: true },
     passports : { collection: 'Passport', via: 'user' },
-    albums : { collection: 'Albums', via: 'user' }
+    albums : { collection: 'Album', via: 'user' }
   }
 };
 
