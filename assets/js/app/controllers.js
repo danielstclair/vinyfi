@@ -77,7 +77,7 @@ angular.module('app.controllers', ['app.services', 'spotify'])
 			};
 			console.log(object);
 
-			$http.post('auth/local/register', object)
+			$http.post('auth/register', object)
 			.success(function(res) {
 				console.log('success!');
 				// console.log(res);
@@ -94,7 +94,22 @@ angular.module('app.controllers', ['app.services', 'spotify'])
 	}
 })
 
-.controller('collectionCTRL', function($scope, $state, $http, Spotify){
+.controller('collectionCTRL', function($scope, $state, $http){
+	$scope.collection = [];
+	$scope.logout = function(){
+		$http.get('/logout');
+		$state.go('home');
+	}
+
+	$http.get('http://tiny-pizza-server.herokuapp.com/collections/vinyfi?sort=artist ASC')
+	.success(function(collection){
+		$scope.collection = collection;
+		console.log($scope.collection);
+	})
+})
+
+.controller('addNewCTRL', function($scope, $state, $http, Spotify){
+	$scope.artists = {};
 	console.log('test');
 	$scope.logout = function(){
 		$http.get('/logout');
@@ -103,13 +118,53 @@ angular.module('app.controllers', ['app.services', 'spotify'])
 
 	$scope.search = function(){
 		Spotify.search($scope.artistSearch, 'artist').then(function (data) {
-			console.log(data);
-			Spotify.getArtistAlbums(data.artists.items[0].id).then(function(albums){
-				console.log(albums);
-			});
+			$scope.artists = {};
+				for (var i = 0; i < data.artists.items.length; i++) {
+					var artist = data.artists.items[i];
+					$scope.artists[artist.id] = artist;
+				};
+				
+				// console.log($scope.artists);
 		});
 		$scope.artistSearch = '';
 	}
+
+	$scope.albumSearch = function(id){
+		Spotify.getArtistAlbums(id).then(function(albums){
+			// console.log(albums);
+			var uniqueNames = [];
+			$.each(albums.items, function(i, el){
+				if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+			});
+			// console.log(uniqueNames);
+			// var albumId = uniqueNames.id;
+			$scope.artists[id].albums = uniqueNames;
+			$scope.artists = angular.copy($scope.artists);
+
+			// console.log($scope.artists);
+		});
+	}
+
+
+	$scope.addAlbum = function(artistId, albumId, albumCover){
+		// console.log('testing the new album function');
+		// i = indexOf($scope.artists[i]);
+		// console.log(albumId);
+		var newAlbum = {
+			artist: $scope.artists[artistId].name,
+			album: albumId,
+			albumCover: albumCover
+		}
+		console.log(newAlbum);
+
+		$http.post('http://tiny-pizza-server.herokuapp.com/collections/vinyfi', newAlbum)
+		.success(function(addedAlbum){
+			console.log(addedAlbum);
+		})
+
+	}
+
+
 })
 
 

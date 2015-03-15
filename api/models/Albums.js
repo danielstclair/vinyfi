@@ -11,7 +11,7 @@ module.exports = {
       required: true, 
       unique: false
     },
-  	releaseDate: {
+  	addedDate: {
       type: 'datetime', 
       required: false, 
       unique: false

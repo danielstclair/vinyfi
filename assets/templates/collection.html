@@ -1,4 +1,14 @@
-<h1>test</h1>
+<h1>collection</h1>
 <a href="#" ng-click="logout()">logout</a>
-<input type="text" placeholder="search by artist" id="artistSearch" ng-model="artistSearch" ng-keyup="$event.keyCode == 13 && search()">
-<button ng-click="search()">Search</button>
+<a ui-sref="addNew">add new</a>
+
+<div ng-repeat="album in collection">
+	<ul>
+		<li>
+			<img ng-src="{{album.albumCover}}" height="200" width="200">
+			<p>{{album.artist}}</p>
+			<p>{{album.album}}</p>
+		</li>
+	</ul>
+</div>
+

@@ -11,6 +11,11 @@ angular.module('app', ['app.controllers', 'ui.router'])
 		templateUrl: 'templates/collection.html',
 		controller: 'collectionCTRL'
 	})
+	.state('addNew', {
+		url: '/addNew',
+		templateUrl: 'templates/addNew.html',
+		controller: 'addNewCTRL'
+	})
 
 	$urlRouterProvider.otherwise('/');
 })

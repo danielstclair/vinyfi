@@ -1,0 +1,19 @@
+<h1>add new</h1>
+<a href="#" ng-click="logout()">logout</a>
+<a ui-sref="collection">back</a>
+<input type="text" placeholder="search by artist" id="artistSearch" ng-model="artistSearch" ng-keyup="$event.keyCode == 13 && search()">
+<button ng-click="search()">Search</button>
+<div ng-repeat="(id, artist) in artists">
+	<a href="#" ng-click="albumSearch(artist.id)" ng-model="artistName">{{ artist.name }}</a>
+	<!-- <a >show albums</> -->
+	<div>
+	<ul>
+		<li ng-repeat="album in artist.albums">
+			<img ng-model="albumCover" ng-src="{{ album.images[0].url }}" height="200" width="200">
+			<p ng-model="albumName">{{ album.name }}</p>
+			<button ng-click="addAlbum(artist.id, album.name, album.images[0].url)">add album</button>
+		</li>
+	</ul>
+	<!-- <button ng-click="closeAlbums()">close</button> -->
+	</div>
+</div>

@@ -14,7 +14,7 @@
 			</form>
 			<form ng-show="registerInput" ng-submit="register(htmlCredentials)">
 				<input type="text" placeholder="email" ng-model="htmlCredentials.identifier"><br>
-				<input type="password" placeholder="password" ng-model="htmlCredentials.password" ng-keyup="$event.keyCode == 13 && register(htmlCredentials)"><br>
+				<input type="password" placeholder="password (8 character min)" ng-model="htmlCredentials.password" ng-keyup="$event.keyCode == 13 && register(htmlCredentials)"><br>
 				<button type="submit" class="submit">let's go!</button>
 				<button class="cancel" ng-click="registerStart()">cancel</button>
 				<p class="errors" ng-bind="error.identifier"></p>
