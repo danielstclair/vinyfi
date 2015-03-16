@@ -1,4 +1,4 @@
-angular.module('app.controllers', ['app.services', 'spotify'])
+angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 .controller('homeCTRL', function($scope, $http, $state, Validate){
 	var quotes = [
 		'keep track of your records anywhere.',
@@ -47,12 +47,9 @@ angular.module('app.controllers', ['app.services', 'spotify'])
 
 			$http.post('/auth/local', htmlCredentials)
 			.success(function(res){
-				console.log('success!');
-				console.log(res);
 				$state.go('collection');
 			})
 			.error(function(err){
-				console.log('Error!');
 				console.log(err);
 			});
 		}
@@ -79,12 +76,9 @@ angular.module('app.controllers', ['app.services', 'spotify'])
 
 			$http.post('auth/register', object)
 			.success(function(res) {
-				console.log('success!');
-				// console.log(res);
 				$state.go('collection');
 			})
 			.error(function(err){
-				console.log('Error!');
 				console.log(err)
 			})
 		}
@@ -96,6 +90,16 @@ angular.module('app.controllers', ['app.services', 'spotify'])
 
 .controller('collectionCTRL', function($scope, $state, $http){
 	$scope.collection = [];
+	$scope.menuItems = false;
+	$scope.hamburger = true;
+	$scope.closeMenu = false;
+
+	$scope.menuView = function(){
+		$scope.menuItems = !$scope.menuItems;
+		$scope.hamburger = !$scope.hamburger;
+		$scope.closeMenu = !$scope.closeMenu;
+	}
+
 	$scope.logout = function(){
 		$http.get('/logout');
 		$state.go('home');
@@ -104,12 +108,10 @@ angular.module('app.controllers', ['app.services', 'spotify'])
 	$http.get('/album')
 	.success(function(collection){
 		$scope.collection = collection;
-		console.log($scope.collection);
 	})
 
 	$http.get('/auth/user')
 	.success(function(response){
-		// $scope.collection = collection;
 		console.log(response);
 	})
 })
@@ -118,6 +120,16 @@ angular.module('app.controllers', ['app.services', 'spotify'])
 	$scope.artists = {};
 	$scope.user = {};
 	console.log('test');
+	$scope.hamburger = true;
+	$scope.closeMenu = false;
+	$scope.menuItems = false;
+
+	$scope.menuView = function(){
+		$scope.hamburger = !$scope.hamburger;
+		$scope.closeMenu = !$scope.closeMenu;
+		$scope.menuItems = !$scope.menuItems;
+	}
+
 	$scope.logout = function(){
 		$http.get('/logout');
 		$state.go('home');
@@ -125,59 +137,45 @@ angular.module('app.controllers', ['app.services', 'spotify'])
 
 	$http.get('/auth/user')
 	.success(function(response){
-		// $scope.collection = collection;
-		console.log(response);
 		$scope.user = response;
 	})
 
 	$scope.search = function(){
 		Spotify.search($scope.artistSearch, 'artist').then(function (data) {
 			$scope.artists = {};
-				for (var i = 0; i < data.artists.items.length; i++) {
-					var artist = data.artists.items[i];
-					$scope.artists[artist.id] = artist;
-				};
-				
-				// console.log($scope.artists);
+			for (var i = 0; i < data.artists.items.length; i++) {
+				var artist = data.artists.items[i];
+				$scope.artists[artist.id] = artist;
+			};
 		});
 		$scope.artistSearch = '';
 	}
 
 	$scope.albumSearch = function(id){
 		Spotify.getArtistAlbums(id).then(function(albums){
-			// console.log(albums);
 			var uniqueNames = [];
 			$.each(albums.items, function(i, el){
 				if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
 			});
-			// console.log(uniqueNames);
-			// var albumId = uniqueNames.id;
 			$scope.artists[id].albums = uniqueNames;
 			$scope.artists = angular.copy($scope.artists);
-
-			// console.log($scope.artists);
 		});
 	}
 
 
 	$scope.addAlbum = function(artistId, albumId, albumCover){
-		// console.log('testing the new album function');
-		// i = indexOf($scope.artists[i]);
-		// console.log(albumId);
 		var newAlbum = {
 			artist: $scope.artists[artistId].name,
 			album: albumId.toString(),
 			albumCover: albumCover.toString(),
 			user: $scope.user
 		}
-		console.log(newAlbum);
 
 		$http.post('/album', newAlbum)
 		.success(function(addedAlbum){
 			console.log(addedAlbum);
 		})
 		.error(function(err){
-			console.log('err');
 			console.log(err);
 		});
 

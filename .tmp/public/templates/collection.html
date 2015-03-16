@@ -1,14 +1,36 @@
-<h1>collection</h1>
-<a href="#" ng-click="logout()">logout</a>
-<a ui-sref="addNew">add new</a>
+<section class="collection-view" scroll>
+	<section class="top">
+		<header>
+			<div class="logo-box">
+				<img class="logo" src="/images/V6.png">
+			</div>
+		</header>
+		<nav class="top-bottom">
+			<h1>collection</h1>
+			<a href="#" ng-click="menuView()" class="ion-navicon menu" ng-show="hamburger"></a>
+			<a href="#" ng-click="menuView()" class="ion-ios-close-empty menu" ng-show="closeMenu"></a>
+			<ul ng-show="menuItems" class="animated fadeIn">
+				<li>
+					<a class="add-new" ui-sref="addNew">add new <span class="ion-plus-round"></span></a>
+				</li>
+				<li>
+					<a class="logout" href="#" ng-click="logout()">logout</a>
+				</li>
+			</ul>
+			<div class="clear-float"></div>
+		</nav>
+	</section>
 
-<div ng-repeat="album in collection">
-	<ul>
-		<li>
-			<img ng-src="{{album.albumCover}}" height="200" width="200">
-			<p>{{album.artist}}</p>
-			<p>{{album.album}}</p>
-		</li>
-	</ul>
-</div>
-
+	<div class="album-view">
+		<ul>
+			<li class="animated fadeInRightBig" ng-repeat="album in collection">
+				<div>
+					<img ng-src="{{album.albumCover}}" class="album-cover">
+					<span class="album-artist">{{album.artist}} <br> <span class="album-name">{{album.album}}</span>
+					</span>
+					<!-- <div class="line"></div> -->
+				</div>
+			</li>
+		</ul>
+	</div>
+</section>

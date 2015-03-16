@@ -1,0 +1,38 @@
+.collection-view{
+	.album-view{
+		margin: 20px auto 0px;
+		max-width: 768px;
+		height: 100%;
+		ul{
+			margin: 1em 0 0 1em;
+			padding: 0;
+			clear: both;
+			li{
+				list-style: none;
+				max-width: 768px;
+				clear: both;
+				padding-top: 24px;
+				.album-cover{
+					background-color: rgba(0,0,0,.2);
+					float: left;
+					height: 120px;
+					width: 120px;
+					padding: 10px;
+					border-right: 2px solid rgba(0, 0, 0, .8);}
+				.album-artist{
+					float: left;
+					margin-left: 10px;
+					line-height: 2em;}
+				.album-name{
+					font-style: italic;}
+				.line{
+					clear: both;
+					border-bottom: 1px solid rgba(0, 0, 0, .8);}
+			}
+			li:nth-of-type(1){
+				padding-top: 0;}
+		}
+	}
+	.prop{
+		margin: 66px auto 50px;}
+}

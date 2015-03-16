@@ -1,19 +1,42 @@
-<h1>add new</h1>
-<a href="#" ng-click="logout()">logout</a>
-<a ui-sref="collection">back</a>
-<input type="text" placeholder="search by artist" id="artistSearch" ng-model="artistSearch" ng-keyup="$event.keyCode == 13 && search()">
-<button ng-click="search()">Search</button>
-<div ng-repeat="(id, artist) in artists">
-	<a href="#" ng-click="albumSearch(artist.id)" ng-model="artistName">{{ artist.name }}</a>
-	<!-- <a >show albums</> -->
-	<div>
-	<ul>
-		<li ng-repeat="album in artist.albums">
-			<img ng-model="albumCover" ng-src="{{ album.images[0].url }}" height="200" width="200">
-			<p ng-model="albumName">{{ album.name }}</p>
-			<button ng-click="addAlbum(artist.id, album.name, album.images[0].url)">add album</button>
-		</li>
-	</ul>
-	<!-- <button ng-click="closeAlbums()">close</button> -->
-	</div>
-</div>
+<section class="addNew animated fadeInLeft">
+	<section class="top">
+		<header>
+			<div class="logo-box">
+				<img class="logo" src="/images/V6.png">
+			</div>
+		</header>
+		<nav class="top-bottom">
+			<h1>add new</h1>
+			<a href="#" ng-click="menuView()" class="ion-navicon menu" ng-show="hamburger"></a>
+			<a href="#" ng-click="menuView()" class="ion-ios-close-empty menu" ng-show="closeMenu"></a>
+			<ul ng-show="menuItems" class="animated fadeIn">
+				<li>
+					<a ui-sref="collection">back</a>
+				</li>
+				<li>
+					<a class="logout" href="#" ng-click="logout()">logout</a>
+				</li>
+			</ul>
+			<div class="clear-float"></div>
+		</nav>
+	</section>
+	<section class="search">
+		<input type="text" placeholder="search by artist" id="artistSearch" ng-model="artistSearch" ng-keyup="$event.keyCode == 13 && search()">
+		<button ng-click="search()">search</button>
+		<div class="clear-float"></div>
+		<div class="results" ng-repeat="(id, artist) in artists">
+			<a href="#" ng-click="albumSearch(artist.id)" ng-model="artistName">{{ artist.name }}</a>
+			<div class="album-view">
+				<ul>
+					<li ng-repeat="album in artist.albums">
+						<div>
+						<img ng-model="albumCover" ng-src="{{ album.images[0].url }}" class="album-cover">
+						<span ng-model="albumName" class="album-artist album-name">{{ album.name }} <br> <button class="add-album" ng-click="addAlbum(artist.id, album.name, album.images[0].url)">add album</button></span>
+						
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+</section>
