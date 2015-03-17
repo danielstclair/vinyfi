@@ -36,7 +36,6 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 
 	$scope.login = function(htmlCredentials){
 		$scope.error = Validate.htmlCredentials(htmlCredentials);
-		console.log($scope.error);
 
 		if(!Validate.hasError($scope.error)){
 			var object = {
@@ -74,7 +73,7 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 			};
 			console.log(object);
 
-			$http.post('auth/register', object)
+			$http.post('auth/local/register', object)
 			.success(function(res) {
 				$state.go('collection');
 			})
@@ -90,6 +89,7 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 
 .controller('collectionCTRL', function($scope, $state, $http){
 	$scope.collection = [];
+	$scope.user = {};
 	$scope.menuItems = false;
 	$scope.hamburger = true;
 	$scope.closeMenu = false;
@@ -107,17 +107,19 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 
 	$http.get('/album')
 	.success(function(collection){
-		$scope.collection = collection;
+		$scope.collection = _.filter(collection, function (a) { 
+			return a.user.id === $scope.user.id; 
+		});
 	})
 
 	$http.get('/auth/user')
 	.success(function(response){
-		console.log(response);
+		$scope.user = response;
 	})
 })
 
 .controller('addNewCTRL', function($scope, $state, $http, Spotify){
-	$scope.artists = {};
+	// $scope.artists = {};
 	$scope.user = {};
 	console.log('test');
 	$scope.hamburger = true;
@@ -153,11 +155,9 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 
 	$scope.albumSearch = function(id){
 		Spotify.getArtistAlbums(id).then(function(albums){
-			var uniqueNames = [];
-			$.each(albums.items, function(i, el){
-				if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+			$scope.artists[id].albums = _.filter(albums.items, function(el){
+				return el.available_markets.indexOf("US") > -1;
 			});
-			$scope.artists[id].albums = uniqueNames;
 			$scope.artists = angular.copy($scope.artists);
 		});
 	}
@@ -168,7 +168,7 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 			artist: $scope.artists[artistId].name,
 			album: albumId.toString(),
 			albumCover: albumCover.toString(),
-			user: $scope.user
+			user: $scope.user.id
 		}
 
 		$http.post('/album', newAlbum)

@@ -10,15 +10,20 @@
 		max-width: 768px;
 		margin: 1em auto;
 		input{
-			background-color: rgba(0, 0, 0, .2);
+			background-color: rgba(0, 0, 0, 0);
 			margin-right: 1em;
 			border: none;
+			border-bottom: 1px solid black;
 			font-size: 1em;
 			outline: none;
 			padding: .3em .5em .1em;
-			max-width: 700px;}
+			// max-width: 700px;
+		}
+		input:focus{
+			background-color: rgba(0, 0, 0, .2);
+		}
 		button{
-			background-color: rgba(255, 255, 255, 0);
+			background-color: rgba(0, 0, 0, 0);
 			border: none;
 			border: 1px solid black;
 			font-size: 1em;
@@ -27,11 +32,13 @@
 			padding: .2em .5em .2em;
 			outline: none;}
 		button:hover{
-			background-color: rgba(255, 255, 255, .3);
-			color: black;}
+			background-color: rgba(0, 0, 0, .5);
+			color: white;
+			border: 2px solid rgb(44, 182, 115);}
 		button:active{
 			background-color: rgb(44, 182, 115);
 			color: white;
+			border: 2px solid rgb(44, 182, 115);
 			outline: none;}
 		.clear-float{
 			border: none;}
@@ -41,6 +48,8 @@
 			padding: 20px;
 			a{
 				text-decoration: none;
+				width: 100%;
+				border-bottom: 1px solid black;
 			}
 			a:hover, .results{
 				background-color: rgba(255, 255, 255, .3);
@@ -52,13 +61,16 @@
 				height: 100%;
 				ul{
 					margin: 1em 0 0 1em;
-					padding: 0;
+					// padding: .3em;
 					clear: both;
+					background-color: rgba(0, 0, 0, .2);
+					border-radius: 5px;
 					li{
 						list-style: none;
 						max-width: 768px;
 						clear: both;
 						padding-top: 24px;
+						// display: inline;
 						.album-cover{
 							background-color: rgba(0,0,0,.2);
 							float: left;

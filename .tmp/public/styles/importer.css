@@ -224,15 +224,17 @@ p, a, input, ul, li {
     max-width: 768px;
     margin: 1em auto; }
     .addNew .search input {
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: transparent;
       margin-right: 1em;
       border: none;
+      border-bottom: 1px solid black;
       font-size: 1em;
       outline: none;
-      padding: .3em .5em .1em;
-      max-width: 700px; }
+      padding: .3em .5em .1em; }
+    .addNew .search input:focus {
+      background-color: rgba(0, 0, 0, 0.2); }
     .addNew .search button {
-      background-color: rgba(255, 255, 255, 0);
+      background-color: transparent;
       border: none;
       border: 1px solid black;
       font-size: 1em;
@@ -241,11 +243,13 @@ p, a, input, ul, li {
       padding: .2em .5em .2em;
       outline: none; }
     .addNew .search button:hover {
-      background-color: rgba(255, 255, 255, 0.3);
-      color: black; }
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: 2px solid #2cb673; }
     .addNew .search button:active {
       background-color: #2cb673;
       color: white;
+      border: 2px solid #2cb673;
       outline: none; }
     .addNew .search .clear-float {
       border: none; }
@@ -254,7 +258,9 @@ p, a, input, ul, li {
       margin: 0 auto;
       padding: 20px; }
       .addNew .search .results a {
-        text-decoration: none; }
+        text-decoration: none;
+        width: 100%;
+        border-bottom: 1px solid black; }
       .addNew .search .results a:hover, .addNew .search .results .results {
         background-color: rgba(255, 255, 255, 0.3);
         color: #2cb673; }
@@ -264,8 +270,9 @@ p, a, input, ul, li {
         height: 100%; }
         .addNew .search .results .album-view ul {
           margin: 1em 0 0 1em;
-          padding: 0;
-          clear: both; }
+          clear: both;
+          background-color: rgba(0, 0, 0, 0.2);
+          border-radius: 5px; }
           .addNew .search .results .album-view ul li {
             list-style: none;
             max-width: 768px;
