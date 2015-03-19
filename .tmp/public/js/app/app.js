@@ -9,7 +9,8 @@ angular.module('app', ['app.controllers', 'ui.router'])
 	.state('collection', {
 		url: '/collection',
 		templateUrl: 'templates/collection.html',
-		controller: 'collectionCTRL'
+		controller: 'collectionCTRL',
+		deepStateRedirect: true
 	})
 	.state('addNew', {
 		url: '/addNew',

@@ -29,18 +29,19 @@
 //
 // etc.
 
+// .ui-view-container {
+// 	position: relative;}
+
 body { 
 	margin: 0; 
-	background-image: url(/images/classy_fabric.png);} 
+	background-color: #F2F2F2;} 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Futura';
-	color: white;
-}
+	color: white;}
 
 p, a, input, ul, li {
 	font-family: 'Avenir Next';
-	color: white;
-}
+	color: #242224;}
 
 .logo-box{
 	margin: 0 auto;}
@@ -57,32 +58,33 @@ p, a, input, ul, li {
 		padding-top: 20px;}
 }
 
-.top-bottom{
-	max-width: 768px;
-	margin: 0 auto;
-	background-image: url(/images/classy_fabric.png);
-	z-index: 1000;
-	h1{
-		float: left;
-		margin: 1em 0 .6em 1em;
-		color: rgb(44, 182, 115);}
-	.menu{
+.menu{
 		text-decoration: none;
-		color: white;
+		color: #242224;
 		float: right;
-		margin: .8em 1em 0em 0;
-		font-size: 1.3em;}
+		margin: .6em 1em 0em 0;
+		font-size: 1.5em;}
 	.ion-navicon:hover{
 		color: rgb(44, 182, 115);}
 	.ion-navicon:active{
 		color: rgb(44, 182, 115);}
 	.ion-ios-close-empty{
-		font-size: 1.7em;
-		margin: .5em .8em 0em 0;}
+		font-size: 1.8em;
+		margin: .4em .9em 0em 0;}
 	.ion-ios-close-empty:hover{
 		color: rgb(228, 77, 77);}
 	.ion-ios-close-empty:active{
 		color: rgb(228, 77, 77);}
+
+.top-bottom{
+	max-width: 768px;
+	margin: 0 auto;
+	z-index: 1000;
+	background-color: #F2F2F2;
+	h1{
+		float: left;
+		margin: 1em 0 .6em 1em;
+		color: rgb(44, 182, 115);}
 	ul{
 		clear: both;
 		padding: 0;
@@ -93,7 +95,7 @@ p, a, input, ul, li {
 			padding: 10px 0;
 			a{
 				text-decoration: none;
-				color: white;}
+				color: #242224;}
 			.logout:hover{
 				color: rgb(228, 77, 77);}
 			.add-new:hover{

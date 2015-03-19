@@ -1,4 +1,4 @@
-<section class="addNew animated fadeInLeft">
+<section class="addNew">
 	<section class="top">
 		<header>
 			<div class="logo-box">
@@ -20,18 +20,19 @@
 			<div class="clear-float"></div>
 		</nav>
 	</section>
-	<section class="search">
+	<section class="search animated fadeInRight">
 		<input type="text" placeholder="search by artist" id="artistSearch" ng-model="artistSearch" ng-keyup="$event.keyCode == 13 && search()">
 		<button ng-click="search()">search</button>
 		<div class="clear-float"></div>
-		<div class="results" ng-repeat="(id, artist) in artists">
-			<a href="#" ng-click="albumSearch(artist.id)" ng-model="artistName">{{ artist.name }}</a>
-			<div class="album-view">
+		<div class="results animated fadeInRight" ng-repeat="(id, artist) in artists">
+			<a href="#" ng-click="albumSearch(artist.id)" ng-show="artistResults" ng-model="artistName" class="artist-name">{{ artist.name }}&nbsp;<span class="ion-ios-arrow-right"></span></a>
+			<div ng-show="albumResults" class="album-view animated fadeInRight">
+				<!-- <h1>{{ artist.name }}</h1> -->
 				<ul>
 					<li ng-repeat="album in artist.albums">
 						<div>
 						<img ng-model="albumCover" ng-src="{{ album.images[0].url }}" class="album-cover">
-						<span ng-model="albumName" class="album-artist album-name">{{ album.name }} <br> <button class="add-album" ng-click="addAlbum(artist.id, album.name, album.images[0].url)">add album</button></span>
+						<span ng-model="albumName" class="album-name">{{ album.name }}<br><button class="add-album" ng-click="addAlbum(artist.id, album.name, album.images[0].url)">add album</button></span>
 						<div class="clear-float"></div>
 						</div>
 					</li>

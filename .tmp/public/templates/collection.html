@@ -11,7 +11,7 @@
 			<a href="#" ng-click="menuView()" class="ion-ios-close-empty menu" ng-show="closeMenu"></a>
 			<ul ng-show="menuItems" class="animated fadeIn">
 				<li>
-					<a class="add-new" ui-sref="addNew">add new <span class="ion-plus-round"></span></a>
+					<a class="add-new" href="#" ui-sref="addNew">add new <span class="ion-plus-round"></span></a>
 				</li>
 				<li>
 					<a class="logout" href="#" ng-click="logout()">logout</a>
@@ -23,11 +23,11 @@
 
 	<div class="album-view">
 		<ul>
-			<li class="animated fadeInRightBig" ng-repeat="album in collection">
+			<li class="animated fadeInRight" ng-repeat="album in collection">
 				<div>
 					<img ng-src="{{album.albumCover}}" class="album-cover">
-					<span class="album-artist">{{album.artist}} <br> <span class="album-name">{{album.album}}</span>
-					</span>
+					<p class="album-artist">{{album.artist}} <br> <span class="album-name">{{album.album}}</span>
+					</p>
 					<!-- <div class="line"></div> -->
 				</div>
 			</li>

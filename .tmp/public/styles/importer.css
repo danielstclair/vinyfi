@@ -15,7 +15,7 @@
  */
 body {
   margin: 0;
-  background-image: url(/images/classy_fabric.png); }
+  background-color: #F2F2F2; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Futura';
@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p, a, input, ul, li {
   font-family: 'Avenir Next';
-  color: white; }
+  color: #242224; }
 
 .logo-box {
   margin: 0 auto; }
@@ -39,32 +39,38 @@ p, a, input, ul, li {
   background-color: rgba(0, 0, 0, 0.8);
   padding-top: 20px; }
 
+.menu {
+  text-decoration: none;
+  color: #242224;
+  float: right;
+  margin: .6em 1em 0em 0;
+  font-size: 1.5em; }
+
+.ion-navicon:hover {
+  color: #2cb673; }
+
+.ion-navicon:active {
+  color: #2cb673; }
+
+.ion-ios-close-empty {
+  font-size: 1.8em;
+  margin: .4em .9em 0em 0; }
+
+.ion-ios-close-empty:hover {
+  color: #e44d4d; }
+
+.ion-ios-close-empty:active {
+  color: #e44d4d; }
+
 .top-bottom {
   max-width: 768px;
   margin: 0 auto;
-  background-image: url(/images/classy_fabric.png);
-  z-index: 1000; }
+  z-index: 1000;
+  background-color: #F2F2F2; }
   .top-bottom h1 {
     float: left;
     margin: 1em 0 .6em 1em;
     color: #2cb673; }
-  .top-bottom .menu {
-    text-decoration: none;
-    color: white;
-    float: right;
-    margin: .8em 1em 0em 0;
-    font-size: 1.3em; }
-  .top-bottom .ion-navicon:hover {
-    color: #2cb673; }
-  .top-bottom .ion-navicon:active {
-    color: #2cb673; }
-  .top-bottom .ion-ios-close-empty {
-    font-size: 1.7em;
-    margin: .5em .8em 0em 0; }
-  .top-bottom .ion-ios-close-empty:hover {
-    color: #e44d4d; }
-  .top-bottom .ion-ios-close-empty:active {
-    color: #e44d4d; }
   .top-bottom ul {
     clear: both;
     padding: 0; }
@@ -75,7 +81,7 @@ p, a, input, ul, li {
       padding: 10px 0; }
       .top-bottom ul li a {
         text-decoration: none;
-        color: white; }
+        color: #242224; }
       .top-bottom ul li .logout:hover {
         color: #e44d4d; }
       .top-bottom ul li .add-new:hover {
@@ -100,6 +106,20 @@ p, a, input, ul, li {
 .home-view header {
   background-color: rgba(0, 0, 0, 0.5);
   margin: 0 auto; }
+.home-view .menu {
+  margin-top: 0;
+  border-bottom: none;
+  color: #F2F2F2; }
+.home-view .ion-navicon:hover {
+  color: #2cb673; }
+.home-view .ion-navicon:active {
+  color: #2cb673; }
+.home-view .ion-ios-close-empty:hover {
+  color: #e44d4d; }
+.home-view .ion-ios-close-empty:active {
+  color: #e44d4d; }
+.home-view .logo {
+  padding-top: 30px; }
 .home-view .pics {
   background-size: cover;
   background-repeat: no-repeat;
@@ -114,11 +134,11 @@ p, a, input, ul, li {
     color: white;
     max-width: 740px; }
     .home-view .pics .description p {
-      padding: 150px 20px; }
+      padding: 150px 20px 0;
+      color: #F2F2F2; }
   .home-view .pics .login {
-    margin: 0 auto;
     text-align: center;
-    padding-top: 20px;
+    padding: 1em 0;
     z-index: 1000; }
     .home-view .pics .login .login-options {
       text-decoration: none;
@@ -126,9 +146,9 @@ p, a, input, ul, li {
     .home-view .pics .login .login-options:hover {
       color: #2cb673; }
     .home-view .pics .login .login-options:nth-of-type(1) {
-      padding-right: 60px; }
+      padding-right: 100px; }
     .home-view .pics .login .login-options:nth-of-type(2) {
-      padding-left: 60px; }
+      padding-left: 100px; }
     .home-view .pics .login input {
       background-color: rgba(0, 0, 0, 0.6);
       padding: .3em 2em;
@@ -193,12 +213,12 @@ p, a, input, ul, li {
       clear: both;
       padding-top: 24px; }
       .collection-view .album-view ul li .album-cover {
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: #242224;
         float: left;
         height: 120px;
         width: 120px;
-        padding: 10px;
-        border-right: 2px solid rgba(0, 0, 0, 0.8); }
+        padding: 1px;
+        border-radius: 5px; }
       .collection-view .album-view ul li .album-artist {
         float: left;
         margin-left: 10px;
@@ -213,12 +233,16 @@ p, a, input, ul, li {
 .collection-view .prop {
   margin: 66px auto 50px; }
 
+@media screen and (min-width: 700px) {
+  .album-view ul li {
+    display: inline-block;
+    width: 25%; }
+    .album-view ul li .album-artist {
+      display: none; } }
 .addNew {
   height: 100%;
   margin: 0;
   padding: 0; }
-  .addNew .fixed {
-    position: static; }
   .addNew .search {
     text-align: center;
     max-width: 768px;
@@ -231,8 +255,6 @@ p, a, input, ul, li {
       font-size: 1em;
       outline: none;
       padding: .3em .5em .1em; }
-    .addNew .search input:focus {
-      background-color: rgba(0, 0, 0, 0.2); }
     .addNew .search button {
       background-color: transparent;
       border: none;
@@ -240,7 +262,7 @@ p, a, input, ul, li {
       font-size: 1em;
       color: #2cb673;
       border-radius: 5px;
-      padding: .2em .5em .2em;
+      padding: .2em .5em .4em;
       outline: none; }
     .addNew .search button:hover {
       background-color: rgba(0, 0, 0, 0.5);
@@ -265,13 +287,10 @@ p, a, input, ul, li {
         background-color: rgba(255, 255, 255, 0.3);
         color: #2cb673; }
       .addNew .search .results .album-view {
-        margin: 20px auto 0px;
-        max-width: 768px;
-        height: 100%; }
+        margin: -100px auto 0;
+        max-width: 768px; }
         .addNew .search .results .album-view ul {
-          margin: 1em 0 0 1em;
           clear: both;
-          background-color: rgba(0, 0, 0, 0.2);
           border-radius: 5px; }
           .addNew .search .results .album-view ul li {
             list-style: none;
@@ -284,19 +303,15 @@ p, a, input, ul, li {
               height: 120px;
               width: 120px;
               padding: 10px;
+              margin-left: -35px;
+              margin-right: 10px;
               border-right: 2px solid rgba(0, 0, 0, 0.8); }
-            .addNew .search .results .album-view ul li .album-artist {
-              float: left;
-              margin-left: 10px;
-              line-height: 2em; }
             .addNew .search .results .album-view ul li .album-name {
+              line-height: 2em;
               font-style: italic; }
-            .addNew .search .results .album-view ul li .line {
-              clear: both;
-              border-bottom: 1px solid rgba(0, 0, 0, 0.8); }
           .addNew .search .results .album-view ul li:nth-of-type(1) {
             padding-top: 0; }
       .addNew .search .results .prop {
-        margin: 0; }
+        margin-top: -50px; }
 
 /*# sourceMappingURL=importer.css.map */

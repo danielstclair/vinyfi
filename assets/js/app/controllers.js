@@ -1,5 +1,15 @@
 angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 .controller('homeCTRL', function($scope, $http, $state, Validate){
+	$scope.hamburger = true;
+	$scope.closeMenu = false;
+	$scope.loginOptions = false;
+
+	$scope.loginView = function(){
+		$scope.hamburger = !$scope.hamburger;
+		$scope.closeMenu = !$scope.closeMenu;
+		$scope.loginOptions = !$scope.loginOptions;
+	}
+
 	var quotes = [
 		'keep track of your records anywhere.',
 		'update your collection seamlessly.',
@@ -125,6 +135,8 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 	$scope.hamburger = true;
 	$scope.closeMenu = false;
 	$scope.menuItems = false;
+	$scope.albumResults = false;
+	$scope.artistResults = false;
 
 	$scope.menuView = function(){
 		$scope.hamburger = !$scope.hamburger;
@@ -143,6 +155,7 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 	})
 
 	$scope.search = function(){
+		$scope.artistResults = true;
 		Spotify.search($scope.artistSearch, 'artist').then(function (data) {
 			$scope.artists = {};
 			for (var i = 0; i < data.artists.items.length; i++) {
@@ -154,7 +167,11 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 	}
 
 	$scope.albumSearch = function(id){
+		$scope.artistResults = false;
+		$scope.albumResults = true;
+		$scope.artistSearch = $scope.artists[id].name;
 		Spotify.getArtistAlbums(id).then(function(albums){
+			// console.log(albums);
 			$scope.artists[id].albums = _.filter(albums.items, function(el){
 				return el.available_markets.indexOf("US") > -1;
 			});

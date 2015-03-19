@@ -1,9 +1,15 @@
 <section class="home-view">
 	<div class="pics" id="pic1">
 		<header class="animated fadeInRight">
-			<section class="login">
-				<a class="login-options" href="#" ng-click="loginStart()">log in</a>
-				<a class="login-options" href="#" ng-click="registerStart()">register</a>
+			<div class="logo-box">
+				<img class="logo" src="/images/V6.png">
+			</div>
+			<a href="#" ng-click="loginView()" class="ion-navicon menu" ng-show="hamburger"></a>
+			<a href="#" ng-click="loginView()" class="ion-ios-close-empty menu" ng-show="closeMenu"></a>
+			<div class="clear-float"></div>
+			<section class="login" ng-show="loginOptions">
+				<a class="login-options col6" href="#" ng-click="loginStart()">log in</a>
+				<a class="login-options col6" href="#" ng-click="registerStart()">register</a>
 				<form ng-show="loginInput" ng-submit="login(htmlCredentials)" class="animated fadeIn">
 					<input type="text" placeholder="email" ng-model="htmlCredentials.identifier"><br>
 					<input type="password" placeholder="password" ng-model="htmlCredentials.password" ng-keyup="$event.keyCode == 13 && login(htmlCredentials)"><br>
@@ -21,9 +27,6 @@
 					<p class="errors" ng-bind="error.password"></p>
 				</form>
 			</section>
-			<div class="logo-box">
-				<img class="logo" src="/images/V6.png">
-			</div>
 		</header>
 		<div class="description">
 			<p id="description"></p>

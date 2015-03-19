@@ -13,12 +13,13 @@
 				clear: both;
 				padding-top: 24px;
 				.album-cover{
-					background-color: rgba(0,0,0,.2);
+					background-color: #242224;
 					float: left;
 					height: 120px;
 					width: 120px;
-					padding: 10px;
-					border-right: 2px solid rgba(0, 0, 0, .8);}
+					padding: 1px;
+					border-radius: 5px;
+				}
 				.album-artist{
 					float: left;
 					margin-left: 10px;
@@ -35,4 +36,17 @@
 	}
 	.prop{
 		margin: 66px auto 50px;}
+}
+
+@media screen and (min-width: 700px) {
+	.album-view{
+		ul{
+			li{
+				display: inline-block;
+				width: 25%;
+				.album-artist{
+					display: none;}
+			}
+		}
+	}
 }
