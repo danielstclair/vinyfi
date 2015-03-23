@@ -153,6 +153,19 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 	$scope.sortAlbum = function(){
 		$scope.collection = _.sortBy($scope.collection, 'album');
 	}
+
+	$scope.deleteAlbum = function(album){
+		console.log(album);
+		// var sansAlbum = album;
+		$http.delete('/album/' + album.id)
+		.success(function(deleted){
+			// $scope.deleted = true;
+			console.log(deleted);
+		})
+		.error(function(err){
+			console.log(err);
+		})
+	}
 })
 
 .controller('addNewCTRL', function($scope, $state, $http, Spotify){

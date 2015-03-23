@@ -4,7 +4,6 @@
 		max-width: 768px;
 		height: 100%;
 		.sorts{
-			// text-align: center;
 			padding-left: 1em;
 			margin: 0;
 			a:nth-of-type(1){
@@ -13,7 +12,9 @@
 				margin: 0 1em;}
 			.active{
 				color: rgb(44, 182, 115);
-				border-bottom: 1px solid black;
+				border-bottom: 1px solid black;}
+			.edit:hover, .edit:active{
+				color: rgb(44, 182, 115);
 			}
 		}
 		ul{
@@ -30,32 +31,37 @@
 				-webkit-transition: all .5s ease-in-out;
 				-moz-transition: all .5s ease-in-out;
 				transition: all .5s ease-in-out;
+
 				.album-cover{
 					background-color: #242224;
 					float: left;
 					height: 120px;
 					width: 120px;
 					padding: 1px;
-					border-radius: 5px;
-				}
+					border-radius: 5px;}
 				.album-artist{
 					float: left;
 					width: calc(100% - 140px);
 					margin-left: 10px;
 					line-height: 1.4em;}
 				.album-name{
-					font-style: italic;
-				}
+					font-style: italic;}
 				.line{
 					clear: both;
 					border-bottom: 1px solid rgba(0, 0, 0, .8);}
 			}
-			// li:nth-of-type(1){
-			// 	padding-top: 0;}
 		}
 	}
 	.prop{
 		margin: 66px auto 50px;}
+	.ion-ios-close-outline{
+		font-size: 1.5em;}
+	.ion-ios-close-outline:hover, .ion-ios-close-outline:active{
+		color: rgb(228, 77, 77);
+	}
+	.ion-ios-close-outline:hover + .album-cover, .ion-ios-close-outline:active + .album-cover{
+		background-color: rgb(228, 77, 77);
+	}
 }
 
 @media screen and (min-width: 500px) {

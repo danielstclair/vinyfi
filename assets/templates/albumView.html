@@ -32,7 +32,10 @@
 		<ul>
 			<li ng-repeat="album in albums">
 				<img ng-model="albumCover" ng-src="{{ album.images[0].url }}" class="album-cover">
-				<p ng-model="albumName" class="album-name">{{ album.name }}<button id="{{album.id}}" class="add-album ion-plus" ng-class="{added: selected === album.id}" ng-click="addAlbum(artist, album.name, album.images[0].url, album.id); selected = album.id"></button></p>
+				<p ng-model="albumName" class="album-name">
+					{{ album.name }}
+					<button id="{{album.id}}" class="add-album ion-plus" ng-class="{added: selected === album.id}" ng-click="addAlbum(artist, album.name, album.images[0].url, album.id); selected = album.id"></button>
+				</p>
 				<!-- <div class="clear-float"></div> -->
 			</li>
 		</ul>

@@ -27,11 +27,14 @@
 			sort by:
 			<a href="#" ng-click="selected=1; sortRecent()" ng-class="{active: selected === 1}">recently added</a>
 			<a href="#" ng-click="selected=2; sortArtist()" ng-class="{active: selected === 2}">artist</a>
-			<a href="#" ng-click="selected=3; sortAlbum()" ng-class="{active: selected === 3}">album</a>
+			<a href="#" ng-click="selected=3; sortAlbum()" ng-class="{active: selected === 3}">album</a><br>
+			<a class="add-new edit" href="#" ng-click="show = !show; editStart = !editStart; editFinished = !editFinished" ng-hide="editStart">edit list</a>
+			<a href="#" class="add-new edit" ng-show="editFinished" ng-click="show = !show; editStart = !editStart; editFinished = !editFinished">done editing</a>
 		</section>
 		<ul>
-			<li ng-repeat="album in collection" ng-animate="'animate'">
+			<li ng-repeat="album in collection" ng-animate="'animate'" ng-hide="deletedAlbum === album.id">
 				<div>
+					<span class="ion-ios-close-outline" ng-show="show" ng-click="deleteAlbum(album); deletedAlbum = album.id"></span>
 					<img ng-src="{{album.albumCover}}" class="album-cover">
 					<p class="album-artist">{{album.artist}} <br> <span class="album-name">{{album.album}}</span>
 					</p>
