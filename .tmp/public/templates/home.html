@@ -1,6 +1,6 @@
 <section class="home-view">
 	<div class="pics" id="pic1">
-		<header class="animated fadeInRight">
+		<header class="animated fadeIn">
 			<div class="logo-box">
 				<img class="logo" src="/images/V6.png">
 			</div>
@@ -8,23 +8,27 @@
 			<a href="#" ng-click="loginView()" class="ion-ios-close-empty menu" ng-show="closeMenu"></a>
 			<div class="clear-float"></div>
 			<section class="login" ng-show="loginOptions">
-				<a class="login-options col6" href="#" ng-click="loginStart()">log in</a>
-				<a class="login-options col6" href="#" ng-click="registerStart()">register</a>
+				<a class="login-options" href="#" ng-click="loginStart()">log in</a>
+				<a class="login-options" href="#" ng-click="registerStart()">register</a>
 				<form ng-show="loginInput" ng-submit="login(htmlCredentials)" class="animated fadeIn">
-					<input type="text" placeholder="email" ng-model="htmlCredentials.identifier"><br>
-					<input type="password" placeholder="password" ng-model="htmlCredentials.password" ng-keyup="$event.keyCode == 13 && login(htmlCredentials)"><br>
+					<input type="email" placeholder="email (case sensitive)" ng-model="htmlCredentials.identifier"><br>
+					<input type="password" placeholder="password (case sensitive)" ng-model="htmlCredentials.password" ng-keyup="$event.keyCode == 13 && login(htmlCredentials)"><br>
 					<button type="submit" class="submit">submit</button>
 					<button class="cancel" ng-click="loginStart()">cancel</button>
 					<p class="errors" ng-bind="error.identifier"></p>
 					<p class="errors" ng-bind="error.password"></p>
+					<p style="color:#F2F2F2">or</p>
+					<p style="text-align:center"><a class="login-options" href="#" ng-click="loginSpotify()">log in with Spotify</a></p>
 				</form>
 				<form ng-show="registerInput" ng-submit="register(htmlCredentials)" class="animated fadeIn">
-					<input type="text" placeholder="email" ng-model="htmlCredentials.identifier"><br>
+					<input type="email" placeholder="email (case sensitive)" ng-model="htmlCredentials.identifier"><br>
 					<input type="password" placeholder="password (8 character min)" ng-model="htmlCredentials.password" ng-keyup="$event.keyCode == 13 && register(htmlCredentials)"><br>
 					<button type="submit" class="submit">let's go!</button>
 					<button class="cancel" ng-click="registerStart()">cancel</button>
 					<p class="errors" ng-bind="error.identifier"></p>
 					<p class="errors" ng-bind="error.password"></p>
+					<p style="color:#F2F2F2">or</p>
+					<p style="text-align:center"><a class="login-options" href="#" ng-click="loginSpotify()">log in with Spotify</a></p>
 				</form>
 			</section>
 		</header>

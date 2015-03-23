@@ -3,15 +3,32 @@
 		margin: 20px auto 0px;
 		max-width: 768px;
 		height: 100%;
+		.sorts{
+			padding-left: 1em;
+			margin: 0;
+			a:nth-of-type(1){
+				margin-left: 1em;}
+			a:nth-of-type(2) {
+				margin: 0 1em;}
+			.active{
+				color: rgb(44, 182, 115);
+				border-bottom: 1px solid black;
+			}
+		}
 		ul{
 			margin: 1em 0 0 1em;
 			padding: 0;
 			clear: both;
+			list-style-type: none;
+			padding-left: 0;
+			max-width: 768px;
 			li{
 				list-style: none;
-				max-width: 768px;
 				clear: both;
 				padding-top: 24px;
+				-webkit-transition: all .5s ease-in-out;
+				-moz-transition: all .5s ease-in-out;
+				transition: all .5s ease-in-out;
 				.album-cover{
 					background-color: #242224;
 					float: left;
@@ -22,30 +39,69 @@
 				}
 				.album-artist{
 					float: left;
+					width: calc(100% - 140px);
 					margin-left: 10px;
-					line-height: 2em;}
+					line-height: 1.4em;}
 				.album-name{
-					font-style: italic;}
+					font-style: italic;
+				}
 				.line{
 					clear: both;
 					border-bottom: 1px solid rgba(0, 0, 0, .8);}
 			}
-			li:nth-of-type(1){
-				padding-top: 0;}
 		}
 	}
 	.prop{
 		margin: 66px auto 50px;}
 }
 
-@media screen and (min-width: 700px) {
-	.album-view{
-		ul{
-			li{
-				display: inline-block;
-				width: 25%;
-				.album-artist{
-					display: none;}
+@media screen and (min-width: 500px) {
+	.collection-view{
+		.album-view{
+			.sorts{
+				padding-bottom: 1em;
+				text-align: center;
+				margin-left: 0;
+			}
+			ul{
+				li{
+					display: inline-block;
+					padding-top: 0;
+					padding-bottom: 2em;
+					vertical-align: top;
+					width: 33.333%;
+					.album-cover{
+						display: block;
+						width: 120px;
+						height: 120px;}
+					.album-artist{
+						display: block;
+						width: 80%;}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 580px){
+	.collection-view{
+		.album-view{
+			ul{
+				li{
+					width: 25%;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.collection-view{
+		.album-view{
+			ul{
+				li{
+					width: 20%;
+				}
 			}
 		}
 	}

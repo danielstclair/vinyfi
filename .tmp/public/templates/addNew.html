@@ -6,12 +6,12 @@
 			</div>
 		</header>
 		<nav class="top-bottom">
-			<h1>add new</h1>
+			<h1>artist search</h1>
 			<a href="#" ng-click="menuView()" class="ion-navicon menu" ng-show="hamburger"></a>
 			<a href="#" ng-click="menuView()" class="ion-ios-close-empty menu" ng-show="closeMenu"></a>
 			<ul ng-show="menuItems" class="animated fadeIn">
 				<li>
-					<a ui-sref="collection">back</a>
+					<a ui-sref="collection">back to collection</a>
 				</li>
 				<li>
 					<a class="logout" href="#" ng-click="logout()">logout</a>
@@ -20,24 +20,12 @@
 			<div class="clear-float"></div>
 		</nav>
 	</section>
-	<section class="search animated fadeInRight">
+	<section class="search animated fadeIn">
 		<input type="text" placeholder="search by artist" id="artistSearch" ng-model="artistSearch" ng-keyup="$event.keyCode == 13 && search()">
 		<button ng-click="search()">search</button>
 		<div class="clear-float"></div>
-		<div class="results animated fadeInRight" ng-repeat="(id, artist) in artists">
-			<a href="#" ng-click="albumSearch(artist.id)" ng-show="artistResults" ng-model="artistName" class="artist-name">{{ artist.name }}&nbsp;<span class="ion-ios-arrow-right"></span></a>
-			<div ng-show="albumResults" class="album-view animated fadeInRight">
-				<!-- <h1>{{ artist.name }}</h1> -->
-				<ul>
-					<li ng-repeat="album in artist.albums">
-						<div>
-						<img ng-model="albumCover" ng-src="{{ album.images[0].url }}" class="album-cover">
-						<span ng-model="albumName" class="album-name">{{ album.name }}<br><button class="add-album" ng-click="addAlbum(artist.id, album.name, album.images[0].url)">add album</button></span>
-						<div class="clear-float"></div>
-						</div>
-					</li>
-				</ul>
-			</div>
+		<div class="results animated fadeInUp" ng-repeat="(id, artist) in artists">
+			<a href="#" ng-click="albumSearch(artist.id)" ng-show="artistResults" ng-model="artistName" class="artist-name" ui-sref="albumView({id: artist.id, name: artist.name})">{{ artist.name }}&nbsp;&nbsp;<span class="ion-ios-arrow-right"></span><span class="ion-ios-arrow-right"></span></a>
 		</div>
 	</section>
 </section>

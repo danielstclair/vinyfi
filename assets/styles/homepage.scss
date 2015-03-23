@@ -33,8 +33,7 @@
 			max-width: 740px;
 			p{
 				padding: 150px 20px 0;
-				color: #F2F2F2;
-			}
+				color: #F2F2F2;}
 		}
 		.login{
 			text-align: center;
@@ -95,5 +94,20 @@
 		}
 	}
 	#pic1 {
+		background-image: url("/images/vinyl9-compressed.jpg");
+		background-position: 50% 50%;}
+}
+
+@media screen and (min-width: 916px) {
+	.home-view{
+		.menu{
+			display: none !important;}
+		.login{
+			display: block !important;
+		}
+		#pic1 {
 		background-image: url("/images/vinyl9.gif");}
+		.clear-float{
+			border-top: none;}
+	}
 }

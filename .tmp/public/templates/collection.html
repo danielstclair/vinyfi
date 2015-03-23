@@ -7,11 +7,12 @@
 		</header>
 		<nav class="top-bottom">
 			<h1>collection</h1>
+			<!-- <input type="text" placeholder="filter by artist" ng-model="artistFilter"> -->
 			<a href="#" ng-click="menuView()" class="ion-navicon menu" ng-show="hamburger"></a>
 			<a href="#" ng-click="menuView()" class="ion-ios-close-empty menu" ng-show="closeMenu"></a>
 			<ul ng-show="menuItems" class="animated fadeIn">
 				<li>
-					<a class="add-new" href="#" ui-sref="addNew">add new <span class="ion-plus-round"></span></a>
+					<a class="add-new" href="#" ui-sref="addNew">artist search <span class="ion-plus-round"></span></a>
 				</li>
 				<li>
 					<a class="logout" href="#" ng-click="logout()">logout</a>
@@ -22,8 +23,14 @@
 	</section>
 
 	<div class="album-view">
+		<section class="sorts">
+			sort by:
+			<a href="#" ng-click="selected=1; sortRecent()" ng-class="{active: selected === 1}">recently added</a>
+			<a href="#" ng-click="selected=2; sortArtist()" ng-class="{active: selected === 2}">artist</a>
+			<a href="#" ng-click="selected=3; sortAlbum()" ng-class="{active: selected === 3}">album</a>
+		</section>
 		<ul>
-			<li class="animated fadeInRight" ng-repeat="album in collection">
+			<li ng-repeat="album in collection" ng-animate="'animate'">
 				<div>
 					<img ng-src="{{album.albumCover}}" class="album-cover">
 					<p class="album-artist">{{album.artist}} <br> <span class="album-name">{{album.album}}</span>

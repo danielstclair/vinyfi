@@ -1,0 +1,40 @@
+<section class="album-search">
+	<section class="top">
+		<header>
+			<div class="logo-box">
+				<img class="logo" src="/images/V6.png">
+			</div>
+		</header>
+		<nav class="top-bottom">
+			<h1>artist search</h1>
+			<a href="#" ng-click="menuView()" class="ion-navicon menu" ng-show="hamburger"></a>
+			<a href="#" ng-click="menuView()" class="ion-ios-close-empty menu" ng-show="closeMenu"></a>
+			<ul ng-show="menuItems" class="animated fadeIn">
+				<li>
+					<a class="add-new" ui-sref="collection">
+						back to collection
+					</a>
+				</li>
+				<li>
+					<a class="add-new" ui-sref="addNew">
+						artist search
+					</a>
+				</li>
+				<li>
+					<a class="logout" href="#" ng-click="logout()">logout</a>
+				</li>
+			</ul>
+			<div class="clear-float"></div>
+		</nav>
+	</section>
+	<h1>{{artist}}</h1>
+	<div ng-show="albums.length" class="album-view animated fadeIn">
+		<ul>
+			<li ng-repeat="album in albums">
+				<img ng-model="albumCover" ng-src="{{ album.images[0].url }}" class="album-cover">
+				<p ng-model="albumName" class="album-name">{{ album.name }}<button id="{{album.id}}" class="add-album ion-plus" ng-class="{added: selected === album.id}" ng-click="addAlbum(artist, album.name, album.images[0].url, album.id); selected = album.id"></button></p>
+				<!-- <div class="clear-float"></div> -->
+			</li>
+		</ul>
+	</div>
+</section>

@@ -34,14 +34,29 @@
 
 body { 
 	margin: 0; 
-	background-color: #F2F2F2;} 
+	background-color: #F7F7F7;} 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Futura';
 	color: white;}
 
-p, a, input, ul, li {
+p, a, input, ul, li, span, section {
 	font-family: 'Avenir Next';
 	color: #242224;}
+
+a{
+	text-decoration: none;}
+
+.view-slide-in.ng-enter {
+	transition: all 1s ease;
+	-webkit-transition:all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	opacity:0.5;
+	position:relative;
+	opacity:0;
+	top:10px;
+	left:20px;
+}
 
 .logo-box{
 	margin: 0 auto;}
@@ -80,7 +95,7 @@ p, a, input, ul, li {
 	max-width: 768px;
 	margin: 0 auto;
 	z-index: 1000;
-	background-color: #F2F2F2;
+	background-color: #F7F7F7;
 	h1{
 		float: left;
 		margin: 1em 0 .6em 1em;
@@ -123,3 +138,4 @@ p, a, input, ul, li {
 @import 'homepage.scss';
 @import 'collection.scss';
 @import 'addNew.scss';
+@import 'albumView.scss';
