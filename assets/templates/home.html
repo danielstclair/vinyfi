@@ -18,7 +18,7 @@
 					<p class="errors" ng-bind="error.identifier"></p>
 					<p class="errors" ng-bind="error.password"></p>
 					<p style="color:#F2F2F2">or</p>
-					<p style="text-align:center"><a class="login-options" href="#" ng-click="loginSpotify()">log in with Spotify</a></p>
+					<p style="text-align:center"><a class="login-options" href="/auth/spotify">log in with Spotify</a></p>
 				</form>
 				<form ng-show="registerInput" ng-submit="register(htmlCredentials)" class="animated fadeIn">
 					<input type="email" placeholder="email (case sensitive)" ng-model="htmlCredentials.identifier"><br>
@@ -28,7 +28,7 @@
 					<p class="errors" ng-bind="error.identifier"></p>
 					<p class="errors" ng-bind="error.password"></p>
 					<p style="color:#F2F2F2">or</p>
-					<p style="text-align:center"><a class="login-options" href="#" ng-click="loginSpotify()">log in with Spotify</a></p>
+					<p style="text-align:center"><a class="login-options" href="/auth/spotify">log in with Spotify</a></p>
 				</form>
 			</section>
 		</header>

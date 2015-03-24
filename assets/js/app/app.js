@@ -6,10 +6,11 @@ angular.module('app', ['app.controllers', 'ui.router', 'app.services'])
 	})
 	.error(function(err){
 	});
+
 })
 .config(function($stateProvider, $urlRouterProvider, SpotifyProvider) {
 	SpotifyProvider.setClientId('4704d4e286a844b0890f7b99708e63f9');
-	SpotifyProvider.setRedirectUri('http://localhost:1337/#/spotifycallback');
+	SpotifyProvider.setRedirectUri('http://localhost:1337/auth/spotify/callback ');
 	SpotifyProvider.setScope('playlist-read-private playlist-modify-private playlist-modify-public');
 	// If you already have an auth token
 	// SpotifyProvider.setAuthToken('zoasliu1248sdfuiknuha7882iu4rnuwehifskmkiuwhjg23');

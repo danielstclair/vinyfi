@@ -1,10 +1,18 @@
 angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
-.controller('homeCTRL', function($scope, $http, $state, Validate, Spotify, User){
+.controller('homeCTRL', function($scope, $http, $state, Validate, Spotify, User, $rootScope){
 	$scope.hamburger = true;
 	$scope.closeMenu = false;
 	$scope.loginOptions = false;
 
-	
+	$scope.isLoggedIn = User.isLoggedIn();
+	if($scope.isLoggedIn) {
+		$scope.user = User.getInfo();
+		$state.go('collection');
+	}
+	$rootScope.$on('LOGIN_EVENT', function(){
+		$scope.user = User.getInfo();
+		$state.go('collection');
+	})
 
 	$scope.loginView = function(){
 		$scope.hamburger = !$scope.hamburger;
@@ -12,10 +20,12 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 		$scope.loginOptions = !$scope.loginOptions;
 	};
 
-	$scope.loginSpotify = function () {
-		Spotify.login();
-		$state.go('collection');
-	};
+	// $scope.loginSpotify = function () {
+	// 	Spotify.login().then(function(data){
+	// 		$state.go('collection');
+	// 	});
+		
+	// };
 
 	var quotes = [
 		'keep track of your records anywhere.',
@@ -104,10 +114,11 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 	};
 })
 
-.controller('collectionCTRL', function($scope, $state, $http, User, $rootScope){
+.controller('collectionCTRL', function($scope, $state, $http, User, $rootScope, Spotify){
 	$scope.isLoggedIn = User.isLoggedIn();
 	if($scope.isLoggedIn) {
 		$scope.user = User.getInfo();
+		console.log($scope.user);
 		getAlbum();
 	}
 	$rootScope.$on('LOGIN_EVENT', function(){
@@ -118,6 +129,15 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 	$scope.menuItems = false;
 	$scope.hamburger = true;
 	$scope.closeMenu = false;
+
+	// Spotify.getCurrentUser();
+
+	// Spotify.getUser($scope.user.username).then(function (data) {
+	// 	console.log(data);
+	// 	Spotify.createPlaylist(data.id, { name: 'Awesome Mix Vol. 1' }).then(function (data) {
+	// 		console.log('playlist created');
+	// 	});
+	// });
 
 	$scope.menuView = function(){
 		$scope.menuItems = !$scope.menuItems;
@@ -135,6 +155,7 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 	function getAlbum() {
 		$http.get('/album?sort=id DESC')
 		.success(function(collection){
+			console.log(collection);
 			$scope.collection = _.filter(collection, function (a) { 
 				return a.user.id === $scope.user.id; 
 			});
@@ -214,7 +235,11 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 	$scope.menuItems = false;
 	$scope.user = User.getInfo();
 
-	Spotify.getArtistAlbums($stateParams.id).then(function(albums){
+	var options = {
+		'limit' : 50
+	};
+
+	Spotify.getArtistAlbums($stateParams.id, options).then(function(albums){
 		$scope.albums = _.filter(albums.items, function(el){
 			return el.available_markets.indexOf("US") > -1;
 		});
@@ -245,7 +270,6 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 			uniqueId: albumId
 		};
 		$scope.albumAdded = true;
-		console.log(newAlbum);
 		for(var i = 0; i < $scope.albums.length; i++){
 			if($scope.albums[i].id === newAlbum.uniqueId){
 				$scope.albums[i].name = 'This album has been added';
