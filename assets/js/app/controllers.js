@@ -115,20 +115,29 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 })
 
 .controller('collectionCTRL', function($scope, $state, $http, User, $rootScope, Spotify){
-	$scope.isLoggedIn = User.isLoggedIn();
-	if($scope.isLoggedIn) {
-		$scope.user = User.getInfo();
-		console.log($scope.user);
-		getAlbum();
-	}
-	$rootScope.$on('LOGIN_EVENT', function(){
-		$scope.user = User.getInfo();
-		getAlbum();
-	})
+	// $scope.isLoggedIn = User.isLoggedIn();
+	// if($scope.isLoggedIn) {
+	// 	$scope.user = User.getInfo();
+	// 	// console.log($scope.user);
+	// 	getAlbum();
+	// }
+	// $rootScope.$on('LOGIN_EVENT', function(){
+	// 	$scope.user = User.getInfo();
+	// 	getAlbum();
+	// })
 	$scope.collection = [];
 	$scope.menuItems = false;
 	$scope.hamburger = true;
 	$scope.closeMenu = false;
+
+	$http.get('/auth/user')
+	.success(function(data){
+		$scope.user = data;
+		getAlbum();
+	})
+	// .error(function(err){
+	// 	$state.go('home');
+	// })
 
 	// Spotify.getCurrentUser();
 
@@ -148,8 +157,14 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 	$scope.logout = function(){
 		$http.get('/logout')
 		.success(function(){
+			console.log('testing logout');
+			// $http.get('auth/user');
 			$state.go('home');
 		})
+		.error(function(err){
+			console.log(err);
+		})
+
 	};
 
 	function getAlbum() {
@@ -177,10 +192,8 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 
 	$scope.deleteAlbum = function(album){
 		console.log(album);
-		// var sansAlbum = album;
 		$http.delete('/album/' + album.id)
 		.success(function(deleted){
-			// $scope.deleted = true;
 			console.log(deleted);
 		})
 		.error(function(err){

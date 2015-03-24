@@ -275,6 +275,8 @@ a {
   color: #e44d4d; }
 .collection-view .ion-ios-close-outline:hover + .album-cover, .collection-view .ion-ios-close-outline:active + .album-cover {
   background-color: #e44d4d; }
+.collection-view .edit {
+  line-height: 2em; }
 
 @media screen and (min-width: 500px) {
   .collection-view .album-view .sorts {

@@ -67,7 +67,7 @@ module.exports.passport = {
     options: {
       clientID: '4704d4e286a844b0890f7b99708e63f9',
       clientSecret: '087407efe1944afbbe8ff207d992ee34',
-      callbackURL: 'http://localhost:1337/auth/spotify/callback',
+      callbackURL: 'https://vinyfi.herokuapp.com/auth/spotify/callback',
       scope: "user-read-private playlist-read-private playlist-modify-private playlist-modify-public"
     }
   }
