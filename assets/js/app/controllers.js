@@ -309,7 +309,7 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 			if($scope.albums[i].id === newAlbum.uniqueId){
 				$scope.albums[i].name = 'This album has been added';
 			}
-			if(newAlbum.album === 'This album has been added'){
+			if(newAlbum.album === 'added!'){
 				return;
 			}
 		}
