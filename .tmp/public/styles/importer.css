@@ -306,6 +306,8 @@ a {
   height: 100%;
   margin: 0;
   padding: 0; }
+  .addNew .fixed {
+    position: static; }
   .addNew .hidden {
     display: none; }
   .addNew .search {
@@ -357,8 +359,10 @@ a {
 .album-search .top-bottom ul li:nth-of-type(3) {
   margin-bottom: -1em;
   border-bottom: none; }
+.album-search .fixed {
+  position: static; }
 .album-search h1 {
-  color: #242224;
+  color: #2cb673;
   text-align: center; }
 .album-search .album-view {
   margin: 20px auto 0px;

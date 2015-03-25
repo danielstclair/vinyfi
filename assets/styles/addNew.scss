@@ -2,6 +2,9 @@
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	.fixed{
+		position: static;
+	}
 	.hidden{
 		display: none;
 	}
@@ -51,6 +54,8 @@
 				color: rgb(44, 182, 115);
 			}
 		}
+		// .prop{
+		// 	margin: 180px auto 50px;}
 	}
 }
 

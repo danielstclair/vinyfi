@@ -309,7 +309,7 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 			if($scope.albums[i].id === newAlbum.uniqueId){
 				$scope.albums[i].name = 'This album has been added';
 			}
-			if(newAlbum.album === 'This album has been added'){
+			if(newAlbum.album === 'added!'){
 				return;
 			}
 		}
@@ -323,19 +323,7 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 	};
 })
 
-.controller('spotifyCallback', function($state){
-	var target = window.self === window.top ? window.opener : window.parent;
 
-	var hash = window.location.hash;
-	if (hash) {
-		var token = window.location.hash.split('&')[0].split('=')[1];
-		target.postMessage(token, 'http://localhost:1337/#/collection'); // v0.7.0 and below
-		localStorage.setItem('spotify-token', token);
-		$state.go('collection');
-	}
-
-
-})
 
 
 

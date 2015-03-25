@@ -38,11 +38,6 @@ angular.module('app', ['app.controllers', 'ui.router', 'app.services'])
 		templateUrl: 'templates/albumView.html',
 		controller: 'albumViewCTRL'
 	})
-	.state('spotifyCallback', {
-		url: '/spotifycallback',
-		templateUrl: 'templates/spotifycallback.html',
-		controller: 'spotifyCallback'
-	})
 
 	$urlRouterProvider.otherwise('/');
 })
