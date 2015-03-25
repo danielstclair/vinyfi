@@ -116,7 +116,18 @@ var AuthController = {
    */
   user: function (req, res) {
     if(req.user) {
-      res.jsonx(req.user);
+      Passport
+      .findOne()
+      .where({user: req.user.id, provider: 'spotify'})
+      .exec(function(err, passport) {
+        if(passport && passport.tokens) {
+          // var tokens = JSON.parse(passport.tokens);
+          // console.log(tokens);
+          req.user.accessToken = passport.tokens.accessToken;
+        }
+        console.log(passport);
+        res.jsonx(req.user);
+      });
     }
     else {
       res.status(404);

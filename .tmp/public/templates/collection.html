@@ -7,7 +7,6 @@
 		</header>
 		<nav class="top-bottom">
 			<h1>collection</h1>
-			<!-- <input type="text" placeholder="filter by artist" ng-model="artistFilter"> -->
 			<a href="#" ng-click="menuView()" class="ion-navicon menu" ng-show="hamburger"></a>
 			<a href="#" ng-click="menuView()" class="ion-ios-close-empty menu" ng-show="closeMenu"></a>
 			<ul ng-show="menuItems" class="animated fadeIn">
@@ -30,6 +29,8 @@
 			<a href="#" ng-click="selected=3; sortAlbum()" ng-class="{active: selected === 3}">album</a><br>
 			<a class="add-new edit" href="#" ng-click="show = !show; editStart = !editStart; editFinished = !editFinished" ng-hide="editStart">edit list</a>
 			<a href="#" class="add-new edit" ng-show="editFinished" ng-click="show = !show; editStart = !editStart; editFinished = !editFinished">done editing</a>
+			<!-- <br><a class="add-new edit" href="#" ng-click="createVinyfi()">create vinyfi playlist</a>
+			<a class="add-new edit" href="#" ng-click="addVinyfiTracks()">add collection to vinyfi playlist</a> -->
 		</section>
 		<ul>
 			<li ng-repeat="album in collection" ng-animate="'animate'" ng-hide="deletedAlbum === album.id">
@@ -38,7 +39,6 @@
 					<img ng-src="{{album.albumCover}}" class="album-cover">
 					<p class="album-artist">{{album.artist}} <br> <span class="album-name">{{album.album}}</span>
 					</p>
-					<!-- <div class="line"></div> -->
 				</div>
 			</li>
 		</ul>

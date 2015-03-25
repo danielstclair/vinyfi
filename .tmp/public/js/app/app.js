@@ -1,11 +1,13 @@
 angular.module('app', ['app.controllers', 'ui.router', 'app.services'])
-.run(function($http, User){
+.run(function($http, User, Spotify){
 	$http.get('/auth/user')
 	.success(function(user){
 		User.setLoggedInUser(user);
+		Spotify.setAuthToken(user.accessToken);
 	})
 	.error(function(err){
 	});
+
 
 })
 .config(function($stateProvider, $urlRouterProvider, SpotifyProvider) {

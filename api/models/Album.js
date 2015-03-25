@@ -26,6 +26,11 @@ module.exports = {
     user : { 
       model: 'User', 
       required : true 
+    },
+    uniqueId : {
+      type: 'string',
+      required: false,
+      unique: false
     }
   }
 };

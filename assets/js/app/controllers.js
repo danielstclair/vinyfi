@@ -126,27 +126,24 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 	// 	getAlbum();
 	// })
 	$scope.collection = [];
+	$scope.tracks = [];
 	$scope.menuItems = false;
 	$scope.hamburger = true;
 	$scope.closeMenu = false;
 
 	$http.get('/auth/user')
-	.success(function(data){
-		$scope.user = data;
+	.success(function(user){
+		$scope.user = user;
 		getAlbum();
+		Spotify.setAuthToken(user.accessToken);
 	})
 	// .error(function(err){
 	// 	$state.go('home');
 	// })
 
-	// Spotify.getCurrentUser();
-
-	// Spotify.getUser($scope.user.username).then(function (data) {
-	// 	console.log(data);
-	// 	Spotify.createPlaylist(data.id, { name: 'Awesome Mix Vol. 1' }).then(function (data) {
-	// 		console.log('playlist created');
-	// 	});
-	// });
+	Spotify.getCurrentUser().then(function(data){
+		$scope.spotifyUser = data.id;
+	});
 
 	$scope.menuView = function(){
 		$scope.menuItems = !$scope.menuItems;
@@ -158,7 +155,6 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 		$http.get('/logout')
 		.success(function(){
 			console.log('testing logout');
-			// $http.get('auth/user');
 			$state.go('home');
 		})
 		.error(function(err){
@@ -170,25 +166,51 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 	function getAlbum() {
 		$http.get('/album?sort=id DESC')
 		.success(function(collection){
-			console.log(collection);
 			$scope.collection = _.filter(collection, function (a) { 
 				return a.user.id === $scope.user.id; 
 			});
 		});
-	}
+	};
+
+
+
+	// $scope.createVinyfi = function(){
+	// 	Spotify.createPlaylist($scope.spotifyUser, { name: 'Vinyfi'}).then(function(vinyfi){
+	// 		console.log('playlist created');
+	// 		$scope.vinyfi = vinyfi.id;
+	// 	})
+	// 	for(var i = 0; i<$scope.collection.length; i++){
+	// 		Spotify.getAlbumTracks($scope.collection[i].uniqueId).then(function(tracks){
+	// 			console.log(tracks);
+	// 			$scope.tracks = _.filter(tracks.items, function(el){
+	// 				return el.available_markets.indexOf("US") > -1;
+	// 			});
+	// 		})
+	// 	}
+	// };
+
+	// $scope.addVinyfiTracks = function(){
+	// 	// for(var j = 0; j< $scope.tracks.length; j++){
+	// 		// console.log($scope.tracks[j].id);
+	// 		Spotify.addPlaylistTracks($scope.user, $scope.vinyfi, 'spotify:track:4iV5W9uYEdYUVa79Axb7Rh, spotify:track:1301WleyT98MSxVHPZCA6M').then(function(addedTracks){
+	// 			console.log(addedTracks);
+	// 		})
+
+	// 	// }
+	// }
 
 	$scope.sortRecent = function(){
 		$scope.collection = _.sortBy($scope.collection, 'id');
 		$scope.collection.reverse();
-	}
+	};
 
 	$scope.sortArtist = function(){
 		$scope.collection = _.sortBy($scope.collection, 'artist');
-	}
+	};
 
 	$scope.sortAlbum = function(){
 		$scope.collection = _.sortBy($scope.collection, 'album');
-	}
+	};
 
 	$scope.deleteAlbum = function(album){
 		console.log(album);
@@ -199,7 +221,7 @@ angular.module('app.controllers', ['app.services', 'spotify', 'app.directives'])
 		.error(function(err){
 			console.log(err);
 		})
-	}
+	};
 })
 
 .controller('addNewCTRL', function($scope, $state, $http, Spotify){
