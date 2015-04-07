@@ -2,7 +2,7 @@
 
 ## Description
 
-Trying to solve the lackluster experience of keeping track of your vinyl records, Vinyfi is an intuitive app for vinyl enthusiasts to keep track of what they own and want. While there are many apps with a vast marketplace and microsoft excel can be excellent for keeping track of inventory. Why settle for the mediocre user experience of a poorly designed, laggy website or the need to export files from one device to another if you want to view things from anywhere? Vinyfi is a free service with a simple and intuitive interface that incorparates current web design starndards (no tables) that users can manage from any device simply. Vinyfi. Keep track of your tracks.
+Trying to solve the lackluster experience of keeping track of your vinyl records, Vinyfi is an intuitive app for vinyl enthusiasts to keep track of what they own and want. While there are many apps with a vast marketplace and microsoft excel can be excellent for keeping track of inventory. Why settle for the mediocre user experience of a poorly designed, laggy website or the need to export files from one device to another if you want to view things from anywhere? Vinyfi is a free service with a simple and intuitive interface that incorparates current web design standards (no tables) that users can manage from any device simply. Vinyfi. Keep track of your tracks.
 
 ## User Stories
 
