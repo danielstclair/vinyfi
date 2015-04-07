@@ -7,13 +7,13 @@ Trying to solve the lackluster experience of keeping track of your vinyl records
 ## User Stories
 
 As a vinyl collector I want to be able to:
-  - Register for a free account on Vinyfi
-  - Sign in from anywhere
-  - View my collections from anywhere
-  - Search for albums that I want to add to my collections
-  - Add items to my collection
-  - View album covers and liner notes of albums that I own or want to add
-  - Delete albums from my collection
+  - ~~Register for a free account on Vinyfi~~
+  - ~~Sign in from anywhere~~
+  - ~~View my collections from anywhere~~
+  - ~~Search for albums that I want to add to my collections~~
+  - ~~Add items to my collection~~
+  - View ~~ album covers ~~ and liner notes of albums that I own or want to add
+  - ~~Delete albums from my collection~~
   - Have multiple collections ('I own' list and 'I want' list)
   - Be able to choose which collection to add to
   - Turn my collections into Spotify playlists (Spotify account required)
