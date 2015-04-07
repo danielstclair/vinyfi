@@ -12,7 +12,8 @@ As a vinyl collector I want to be able to:
   - ~~View my collections from anywhere~~
   - ~~Search for albums that I want to add to my collections~~
   - ~~Add items to my collection~~
-  - View ~~ album covers ~~ and liner notes of albums that I own or want to add
+  - ~~View album covers of albums that I own or want to add~~
+  - View liner notes
   - ~~Delete albums from my collection~~
   - Have multiple collections ('I own' list and 'I want' list)
   - Be able to choose which collection to add to
